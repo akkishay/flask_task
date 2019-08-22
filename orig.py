@@ -52,7 +52,7 @@ def token_required(f):
     return decorated
 
 # Code for login and registration
-@app.route('/registration', methods=['POST'])
+@app.route('/api/registration', methods=['POST'])
 def registration():
     data = request.get_json()
     if data['uname'] == '' or data['passwd'] == '':
@@ -68,7 +68,7 @@ def registration():
         db.session.commit()
         return jsonify({'msg' : 'new user created'})
 
-@app.route('/login')
+@app.route('/api/login')
 def login():
     auth = request.authorization
 
